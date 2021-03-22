@@ -1,30 +1,47 @@
-import { fromJcamp as commonFromJcamp } from 'common-spectrum'
+import { fromJcamp as commonFromJcamp } from 'common-spectrum';
 
 export function fromJcamp(jcamp, options) {
-    const analysis = commonFromJcamp(jcamp, options)
+  return commonFromJcamp(jcamp, { ...options, spectrumCallback });
+}
 
-    // we add missing absorbance / transmittance
-    // variable a = absorbance
-    // variable t = transmittance
-    for (let spectrum of analysis.spectra) {
-        let yVariable = spectrum.variables.y;
-        let absorbance = true;
-        if (yVariable.label.toLowerCase().includes('trans')) {
-            absorbance = false;
-        }
+function spectrumCallback(variables) {
+  // we add missing absorbance / transmittance
+  // variable a = absorbance
+  // variable t = transmittance
+  let yVariable = variables.y;
+  let absorbance = true;
+  if (yVariable.label.toLowerCase().includes('trans')) {
+    absorbance = false;
+  }
 
-
-        if (absorbance) {
-            spectrum.variables.a = yVariable
-            spectrum.variables.t = 
-        } else {
-            spectrum.variables.t = yVariable
-            spectrum.variables.t = yVariable
-        }
-        console.log(spectrum)
+  if (absorbance) {
+    variables.a = yVariable;
+    variables.t = {
+      data: yVariable.data.map((absorbance) => 10 ** -absorbance * 100),
+      label: 'Transmittance (%)',
+      units: '',
+    };
+  } else {
+    const factor =
+      yVariable.label.includes('%') ||
+      yVariable.label.toLowerCase().includes('percent')
+        ? 100
+        : 1;
+    variables.a = {
+      data: yVariable.data.map(
+        (transmittance) => -Math.log10(transmittance / factor),
+      ),
+      label: 'Absorbance',
+      units: '',
+    };
+    if (factor === 100) {
+      variables.t = yVariable;
+    } else {
+      variables.t = {
+        units: '',
+        label: 'Transmittance (%)',
+        data: yVariable.data.map((transmittance) => transmittance * 100),
+      };
     }
-
-
-
-    return analysis
+  }
 }
