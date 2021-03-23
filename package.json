@@ -49,6 +49,7 @@
     "rollup": "^2.42.3"
   },
   "dependencies": {
-    "common-spectrum": "0.28.0"
+    "common-spectrum": "0.28.0",
+    "ml-gsd": "^6.6.0"
   }
 }
