@@ -13,10 +13,19 @@
 ## Usage
 
 ```js
-import IRSoectrzn from 'ir-spectrum';
+import IRSpectrum from 'ir-spectrum';
 
-let analysis = IRSoectrzn.fromJcamp(jcamp);
+let analysis = IRSpectrum.fromJcamp(jcamp);
 ```
+
+When loading an IRSpectrum from Jcamp we will systamatically add 2 new variables:
+
+- a: containing the absorbance
+- t: containing the percent transmittance
+
+In order to calculate those 2 variables we will check the Y label. If it contains
+transmittance we calculate absorbance, if it contains absorbance we calculate transmittance.
+For transmittance we also check for the presence of a '%' sign.:w
 
 ## [API Documentation](https://cheminfo.github.io/ir-spectrum/)
 
