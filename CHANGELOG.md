@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.0...v1.0.1) (2021-03-29)
+
+
+### Bug Fixes
+
+* use wavenumber and not wavelength ([66b6b51](https://www.github.com/cheminfo/ir-spectrum/commit/66b6b51a7c92c424183c4b34865bd21d0d714848))
+
 ## 1.0.0 (2021-03-26)
 
 
