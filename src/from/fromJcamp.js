@@ -15,7 +15,8 @@ function spectrumCallback(variables) {
   }
 
   if (absorbance) {
-    variables.a = yVariable;
+    variables.a = { ...yVariable };
+    variables.a.data = variables.a.data.slice();
     variables.t = {
       data: yVariable.data.map((absorbance) => 10 ** -absorbance * 100),
       label: 'Transmittance (%)',
@@ -35,7 +36,8 @@ function spectrumCallback(variables) {
       units: '',
     };
     if (factor === 100) {
-      variables.t = yVariable;
+      variables.t = { ...yVariable };
+      variables.t.data = variables.t.data.slice();
     } else {
       variables.t = {
         units: '',
