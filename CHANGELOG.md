@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.1...v1.0.2) (2021-04-14)
+
+
+### Bug Fixes
+
+* double reverse because same variable (pointer) ([208bcf9](https://www.github.com/cheminfo/ir-spectrum/commit/208bcf9c04d1dcd5f9875d773f5bb201f26d2c56))
+
 ### [1.0.1](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.0...v1.0.1) (2021-03-29)
 
 
