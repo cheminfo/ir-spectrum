@@ -61,8 +61,8 @@
     ],
     "technique": {
       "name": "IR",
-      "chmo": "0000630"
-      // "iupac": "https://doi.org/10.1351/goldbook.D01712"
+      "chmo": "0000630",
+      "iupac": "https://goldbook.iupac.org/terms/view/IT07399"
     },
     "functionality": {
       "fileTypes": [
