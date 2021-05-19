@@ -33,24 +33,24 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.13.8",
-    "@types/jest": "^26.0.22",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0",
+    "@types/jest": "^26.0.23",
     "cheminfo-build": "^1.1.10",
-    "codecov": "^3.8.1",
-    "eslint": "^7.24.0",
-    "eslint-config-cheminfo": "^5.2.3",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.5",
+    "codecov": "^3.8.2",
+    "eslint": "^7.26.0",
+    "eslint-config-cheminfo": "^5.2.4",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-prettier": "^3.4.0",
     "esm": "^3.2.25",
     "jest": "^26.6.3",
     "jest-matcher-deep-close-to": "^2.0.1",
-    "prettier": "^2.2.1",
-    "rollup": "^2.45.2"
+    "prettier": "^2.3.0",
+    "rollup": "^2.48.0"
   },
   "dependencies": {
-    "common-spectrum": "0.31.0",
-    "ml-gsd": "^6.6.1"
+    "common-spectrum": "0.34.0",
+    "ml-gsd": "^6.6.2"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/ir/assignment.svg",
