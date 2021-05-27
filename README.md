@@ -4,8 +4,6 @@
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
 
-.
-
 ## Installation
 
 `$ npm install --save ir-spectrum`
