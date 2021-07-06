@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.2...v1.0.3) (2021-07-06)
+
+
+### Bug Fixes
+
+* dot in README ([dac6c63](https://www.github.com/cheminfo/ir-spectrum/commit/dac6c63f88399c1e87f10dd6dbb163b9c149e9b9))
+* iupac link for technique ([b67a76d](https://www.github.com/cheminfo/ir-spectrum/commit/b67a76d98e494655f037a43915aea29ad00eb5ff))
+
 ### [1.0.2](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.1...v1.0.2) (2021-04-14)
 
 
