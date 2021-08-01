@@ -36,20 +36,20 @@
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
     "@types/jest": "^26.0.24",
     "cheminfo-build": "^1.1.11",
-    "codecov": "^3.8.2",
-    "eslint": "^7.30.0",
+    "codecov": "^3.8.3",
+    "eslint": "^7.32.0",
     "eslint-config-cheminfo": "^5.2.4",
     "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-prettier": "^3.4.0",
     "esm": "^3.2.25",
     "jest": "^27.0.6",
     "jest-matcher-deep-close-to": "^2.0.1",
     "prettier": "^2.3.2",
-    "rollup": "^2.53.2"
+    "rollup": "^2.55.1"
   },
   "dependencies": {
-    "common-spectrum": "0.39.0",
+    "common-spectrum": "0.40.0",
     "ml-gsd": "^6.6.3"
   },
   "info": {
