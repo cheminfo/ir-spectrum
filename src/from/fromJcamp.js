@@ -1,49 +1,16 @@
 import { fromJcamp as commonFromJcamp } from 'common-spectrum';
 
-export function fromJcamp(jcamp, options) {
+import { spectrumCallback } from './utils/spectrumCallback';
+
+/**
+ * Creates a new Analysis from a SPC buffer
+ * @param {ArrayBuffer|string} jcamp
+ * @param {object} [options={}]
+ * @param {object} [options.id=Math.random()]
+ * @param {string} [options.label=options.id] human redeable label
+ * @param {string} [options.spectrumCallback] a callback to apply on variables when creating spectrum. Default will add a and t
+ * @return {Analysis} - New class element with the given data
+ */
+export function fromJcamp(jcamp, options = {}) {
   return commonFromJcamp(jcamp, { ...options, spectrumCallback });
-}
-
-function spectrumCallback(variables) {
-  // we add missing absorbance / transmittance
-  // variable a = absorbance
-  // variable t = transmittance
-  let yVariable = variables.y;
-  let absorbance = true;
-  if (yVariable.label.toLowerCase().includes('trans')) {
-    absorbance = false;
-  }
-
-  if (absorbance) {
-    variables.a = { ...yVariable };
-    variables.a.data = variables.a.data.slice();
-    variables.t = {
-      data: yVariable.data.map((absorbance) => 10 ** -absorbance * 100),
-      label: 'Transmittance (%)',
-      units: '',
-    };
-  } else {
-    const factor =
-      yVariable.label.includes('%') ||
-      yVariable.label.toLowerCase().includes('percent')
-        ? 100
-        : 1;
-    variables.a = {
-      data: yVariable.data.map(
-        (transmittance) => -Math.log10(transmittance / factor),
-      ),
-      label: 'Absorbance',
-      units: '',
-    };
-    if (factor === 100) {
-      variables.t = { ...yVariable };
-      variables.t.data = variables.t.data.slice();
-    } else {
-      variables.t = {
-        units: '',
-        label: 'Transmittance (%)',
-        data: yVariable.data.map((transmittance) => transmittance * 100),
-      };
-    }
-  }
 }

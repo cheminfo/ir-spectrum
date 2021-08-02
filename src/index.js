@@ -1,5 +1,6 @@
 import { JSGraph as OriginalJSGraph } from 'common-spectrum';
 
+import { fromSPC } from './from/fromSPC';
 import { getAnnotations } from './jsgraph/getAnnotations';
 
 export {
@@ -11,5 +12,6 @@ export {
 } from 'common-spectrum';
 
 export { fromJcamp } from './from/fromJcamp';
+export { fromSPC } from './from/fromSPC';
 
 export const JSGraph = { ...OriginalJSGraph, getAnnotations };
