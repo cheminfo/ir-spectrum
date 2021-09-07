@@ -1,6 +1,5 @@
 import { JSGraph as OriginalJSGraph } from 'common-spectrum';
 
-import { fromSPC } from './from/fromSPC';
 import { getAnnotations } from './jsgraph/getAnnotations';
 
 export {
