@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.3...v1.1.0) (2021-09-07)
+
+
+### Features
+
+* add fromSPC ([d9eacf4](https://www.github.com/cheminfo/ir-spectrum/commit/d9eacf4cc3d4338ad630f7ee4798c3a168ead34f))
+
+
+### Bug Fixes
+
+* remove compatibility with node 10.x ([08ed76c](https://www.github.com/cheminfo/ir-spectrum/commit/08ed76c47905625822272eb6e9831ba57f6b777f))
+
 ### [1.0.3](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.2...v1.0.3) (2021-07-06)
 
 
