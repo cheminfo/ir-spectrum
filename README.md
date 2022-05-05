@@ -3,6 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![Test coverage][codecov-image]][codecov-url]
 [![npm download][download-image]][download-url]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5482831.svg)](https://doi.org/10.5281/zenodo.5482831)
 
 ## Installation
 
