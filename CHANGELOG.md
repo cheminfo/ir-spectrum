@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/cheminfo/ir-spectrum/compare/v1.1.0...v2.0.0) (2022-05-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* remove node 12 compatibility
+* update dependencies to use new ml-signal-processing package
+
+### Features
+
+* update dependencies to use new ml-signal-processing package ([41e89c2](https://www.github.com/cheminfo/ir-spectrum/commit/41e89c29fec7d228fd9c65828b471cde15af5a9c))
+
+
+### Miscellaneous Chores
+
+* remove node 12 compatibility ([fd426fc](https://www.github.com/cheminfo/ir-spectrum/commit/fd426fce70fcf8260de58a49224e6b66b07641e8))
+
 ## [1.1.0](https://www.github.com/cheminfo/ir-spectrum/compare/v1.0.3...v1.1.0) (2021-09-07)
 
 
