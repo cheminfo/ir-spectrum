@@ -13,5 +13,5 @@ test('autoPeakPicking', () => {
   const result = fromJcamp(jcamp);
   const peaks = autoPeakPicking(result.getSpectrum());
 
-  expect(peaks).toHaveLength(109);
+  expect(peaks).toHaveLength(24);
 });

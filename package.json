@@ -14,6 +14,8 @@
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
     "prepublishOnly": "rollup -c",
+    "prettier": "prettier --check src",
+    "prettier-write": "prettier --write src",
     "test": "npm run test-coverage && npm run eslint",
     "test-coverage": "jest --coverage",
     "test-only": "jest"
@@ -33,25 +35,25 @@
     "testEnvironment": "node"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
-    "@types/jest": "^27.0.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@types/jest": "^27.5.0",
     "cheminfo-build": "^1.1.11",
     "codecov": "^3.8.3",
-    "eslint": "^7.32.0",
-    "eslint-config-cheminfo": "^5.4.0",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jest": "^24.4.0",
+    "eslint": "^8.14.0",
+    "eslint-config-cheminfo": "^7.3.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-prettier": "^4.0.0",
     "esm": "^3.2.25",
-    "jest": "^27.1.0",
-    "jest-matcher-deep-close-to": "^2.0.1",
-    "prettier": "^2.3.2",
-    "rollup": "^2.56.3"
+    "jest": "^28.0.3",
+    "jest-matcher-deep-close-to": "^3.0.2",
+    "prettier": "^2.6.2",
+    "rollup": "^2.72.0"
   },
   "dependencies": {
-    "common-spectrum": "0.40.0",
-    "ml-gsd": "^6.7.0",
-    "spc-parser": "^0.5.1"
+    "common-spectrum": "1.0.2",
+    "ml-gsd": "^11.2.0",
+    "spc-parser": "^0.5.2"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/ir/assignment.svg",

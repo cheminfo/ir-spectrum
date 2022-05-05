@@ -12,21 +12,21 @@ test('fromSPC', () => {
   let buffer = readFileSync(join(__dirname, './data/absorbance.spc'));
 
   let analysis = fromSPC(buffer);
-
   let jcamp = toJcamp(analysis, {});
-  expect(jcamp.split('\n')).toHaveLength(1826);
+  expect(jcamp.split('\n')).toHaveLength(1832);
   expect(analysis.spectra).toHaveLength(1);
 
   let first = analysis.spectra[0];
-
   expect(first.variables.x.data).toHaveLength(1776);
   expect(first.variables.y.data).toHaveLength(1776);
   expect(first.variables.a.data).toHaveLength(1776);
   expect(first.variables.t.data).toHaveLength(1776);
-  expect(first.variables.x.label).toStrictEqual('Wavenumber');
-  expect(first.variables.y.label).toStrictEqual('Transmission');
-  expect(first.variables.a.label).toStrictEqual('Absorbance');
-  expect(first.variables.t.label).toStrictEqual('Transmittance (%)');
+  expect(first.variables.x.label).toBe('Wavenumber');
+  expect(first.variables.x.units).toBe('cm-1');
+  expect(first.variables.y.label).toBe('Transmission');
+  expect(first.variables.a.label).toBe('Absorbance');
+  expect(first.variables.t.label).toBe('Transmittance');
+  expect(first.variables.t.units).toBe('%');
   expect(first.variables.a.min).toBeDeepCloseTo(-2, 5);
   expect(first.variables.a.max).toBeDeepCloseTo(-0.5194697976112366, 5);
   expect(first.variables.t.min).toBeDeepCloseTo(330.72711181640625, 5);
