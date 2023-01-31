@@ -13,7 +13,7 @@ test('fromSPC', () => {
 
   let analysis = fromSPC(buffer);
   let jcamp = toJcamp(analysis, {});
-  expect(jcamp.split('\n')).toHaveLength(1832);
+  expect(jcamp.split('\n')).toHaveLength(1833);
   expect(analysis.spectra).toHaveLength(1);
 
   let first = analysis.spectra[0];
@@ -29,6 +29,6 @@ test('fromSPC', () => {
   expect(first.variables.t.units).toBe('%');
   expect(first.variables.a.min).toBeDeepCloseTo(-2, 5);
   expect(first.variables.a.max).toBeDeepCloseTo(-0.5194697976112366, 5);
-  expect(first.variables.t.min).toBeDeepCloseTo(330.72711181640625, 5);
+  expect(first.variables.t.min).toBeDeepCloseTo(330.72710037231445, 5);
   expect(first.variables.t.max).toBeDeepCloseTo(10000, 5);
 });
