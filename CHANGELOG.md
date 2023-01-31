@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/cheminfo/ir-spectrum/compare/v2.0.0...v2.0.1) (2023-01-31)
+
+
+### Bug Fixes
+
+* change correcty variable names in spectrumCallback ([c213710](https://github.com/cheminfo/ir-spectrum/commit/c213710d213d25ea8c8f10ace3e37366e5868f51))
+
 ## [2.0.0](https://www.github.com/cheminfo/ir-spectrum/compare/v1.1.0...v2.0.0) (2022-05-05)
 
 
