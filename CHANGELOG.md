@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/cheminfo/ir-spectrum/compare/v2.0.1...v3.0.0) (2023-08-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* peaks have now properties wavenumber, absorbance, transmittance and kind
+
+### Features
+
+* peaks have now properties wavenumber, absorbance, transmittance and kind ([b060163](https://github.com/cheminfo/ir-spectrum/commit/b06016310770f6b120dada76724a81ff2f60f252))
+
+
+### Bug Fixes
+
+* rename rollup.config to support last version ([60af975](https://github.com/cheminfo/ir-spectrum/commit/60af9756c49a9dda33aa74db4b6a49d62e65ace1))
+
 ## [2.0.1](https://github.com/cheminfo/ir-spectrum/compare/v2.0.0...v2.0.1) (2023-01-31)
 
 
