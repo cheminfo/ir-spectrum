@@ -11,11 +11,13 @@ export { Analysis, AnalysesManager, toJcamp } from 'common-spectrum';
 
 export function peakPicking(spectrum, target, options) {
   const peak = originalPeakPicking(spectrum, target, options);
+  if (!peak) return undefined;
   return convertPeak(peak, spectrum);
 }
 
 export function autoPeakPicking(spectrum, options) {
   const peaks = originalAutoPeakPicking(spectrum, options);
+  if (!peaks) return [];
   return peaks.map((peak) => convertPeak(peak, spectrum));
 }
 
