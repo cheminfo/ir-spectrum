@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/cheminfo/ir-spectrum/compare/v3.0.0...v3.1.0) (2024-11-14)
+
+
+### Features
+
+* update ir-spectrum and add more filters ([7834b77](https://github.com/cheminfo/ir-spectrum/commit/7834b77a49c112a55288d22074aae65a500a51ae))
+
 ## [3.0.0](https://github.com/cheminfo/ir-spectrum/compare/v2.0.1...v3.0.0) (2023-08-22)
 
 
