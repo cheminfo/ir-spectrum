@@ -1,6 +1,6 @@
 import { fromJcamp as commonFromJcamp } from 'common-spectrum';
 
-import { spectrumCallback } from './utils/spectrumCallback';
+import { spectrumCallback } from './utils/spectrumCallback.js';
 
 /**
  * Creates a new Analysis from a SPC buffer

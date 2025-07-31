@@ -5,7 +5,7 @@ import { toJcamp } from 'common-spectrum';
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
 import { describe, expect, it } from 'vitest';
 
-import { fromSPC } from '../fromSPC';
+import { fromSPC } from '../fromSPC.js';
 
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
 

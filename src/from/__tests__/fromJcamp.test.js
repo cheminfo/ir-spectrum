@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
 import { describe, expect, it } from 'vitest';
 
-import { fromJcamp } from '../fromJcamp';
+import { fromJcamp } from '../fromJcamp.js';
 
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
 
