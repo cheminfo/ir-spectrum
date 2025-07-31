@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/cheminfo/ir-spectrum/compare/v3.2.0...v3.2.1) (2025-07-31)
+
+
+### Bug Fixes
+
+* use new version of node for lactame deployment ([ce19f86](https://github.com/cheminfo/ir-spectrum/commit/ce19f8695c336609515c8a4352a4aad1f2601f9a))
+
 ## [3.2.0](https://github.com/cheminfo/ir-spectrum/compare/v3.1.0...v3.2.0) (2025-07-31)
 
 
