@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/cheminfo/ir-spectrum/compare/v3.1.0...v3.2.0) (2025-07-31)
+
+
+### Features
+
+* update package to native module ([c2a313c](https://github.com/cheminfo/ir-spectrum/commit/c2a313ca331aa2d19852d74883418b27db882d0f))
+
 ## [3.1.0](https://github.com/cheminfo/ir-spectrum/compare/v3.0.0...v3.1.0) (2024-11-14)
 
 
