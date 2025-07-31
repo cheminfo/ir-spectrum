@@ -15,7 +15,8 @@
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
     "test": "npm run test-only && npm run eslint && npm run prettier",
-    "test-only": "vitest run --coverage"
+    "test-only": "vitest run --coverage",
+    "test-import": "node -e \"import('file://' + process.cwd() + '/src/index.js').then(console.log)\""
   },
   "repository": {
     "type": "git",

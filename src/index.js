@@ -21,7 +21,7 @@ export function autoPeakPicking(spectrum, options) {
   return peaks.map((peak) => convertPeak(peak, spectrum));
 }
 
-export { fromJcamp } from './from/fromJcamp';
-export { fromSPC } from './from/fromSPC';
+export { fromJcamp } from './from/fromJcamp.js';
+export { fromSPC } from './from/fromSPC.js';
 
 export const JSGraph = { ...OriginalJSGraph, getAnnotations };
