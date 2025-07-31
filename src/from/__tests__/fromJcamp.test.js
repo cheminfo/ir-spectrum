@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { fromJcamp } from '../fromJcamp';
 
@@ -35,6 +35,7 @@ describe('fromJcamp', () => {
     expect(first.variables.t.min).toBeDeepCloseTo(1.6, 5);
     expect(first.variables.t.max).toBeDeepCloseTo(91.7, 5);
   });
+
   it('transmittance_percent', () => {
     let jcamp = readFileSync(
       join(__dirname, './data/transmittance_percent.jdx'),
@@ -60,6 +61,7 @@ describe('fromJcamp', () => {
     expect(first.variables.t.min).toBeDeepCloseTo(31.233769, 5);
     expect(first.variables.t.max).toBeDeepCloseTo(100.400625, 5);
   });
+
   it('absorbance', () => {
     let jcamp = readFileSync(join(__dirname, './data/absorbance.jdx'), 'utf8');
 

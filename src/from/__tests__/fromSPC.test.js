@@ -3,21 +3,24 @@ import { join } from 'node:path';
 
 import { toJcamp } from 'common-spectrum';
 import { toBeDeepCloseTo, toMatchCloseTo } from 'jest-matcher-deep-close-to';
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { fromSPC } from '../fromSPC';
 
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
+
 describe('fromSPC', () => {
   it('fromSPC', () => {
     let buffer = readFileSync(join(__dirname, './data/absorbance.spc'));
 
     let analysis = fromSPC(buffer);
     let jcamp = toJcamp(analysis, {});
+
     expect(jcamp.split('\n')).toHaveLength(1833);
     expect(analysis.spectra).toHaveLength(1);
 
     let first = analysis.spectra[0];
+
     expect(first.variables.x.data).toHaveLength(1776);
     expect(first.variables.y.data).toHaveLength(1776);
     expect(first.variables.a.data).toHaveLength(1776);
@@ -34,11 +37,13 @@ describe('fromSPC', () => {
     expect(first.variables.t.max).toBeDeepCloseTo(10000, 5);
     expect(Object.keys(first.variables)).toStrictEqual(['x', 'y', 'a', 't']);
   });
+
   it('resolutionPro', () => {
     let buffer = readFileSync(join(__dirname, './data/resolutionPro.spc'));
 
     let analysis = fromSPC(buffer);
     const variables = analysis.spectra[0].variables;
+
     expect(Object.keys(variables)).toStrictEqual(['x', 'y', 'a', 't']);
   });
 });

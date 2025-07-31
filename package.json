@@ -1,11 +1,10 @@
 {
   "name": "ir-spectrum",
   "version": "3.1.0",
-  "description": "",
-  "main": "lib/index.js",
-  "module": "src/index.js",
+  "description": "Package used to handle IR spectra in SciPeaks.",
+  "type": "module",
+  "exports": "src/index.js",
   "files": [
-    "lib",
     "src"
   ],
   "scripts": {
@@ -13,7 +12,6 @@
     "build-doc": "cheminfo doc",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
-    "prepack": "rollup -c",
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
     "test": "npm run test-coverage && npm run eslint && npm run prettier",
@@ -31,25 +29,20 @@
     "url": "https://github.com/cheminfo/ir-spectrum/issues"
   },
   "homepage": "https://github.com/cheminfo/ir-spectrum#readme",
-  "jest": {
-    "testEnvironment": "node"
-  },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.25.9",
-    "@vitest/coverage-v8": "^2.1.5",
-    "cheminfo-build": "^1.2.0",
-    "codecov": "^3.8.3",
-    "eslint": "^9.14.0",
-    "eslint-config-cheminfo": "^12.0.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "cheminfo-build": "^1.2.1",
+    "eslint": "^9.32.0",
+    "eslint-config-cheminfo": "^15.0.1",
     "esm": "^3.2.25",
     "jest-matcher-deep-close-to": "^3.0.2",
-    "prettier": "^3.3.3",
-    "rollup": "^4.26.0",
-    "vitest": "^2.1.5"
+    "prettier": "^3.6.2",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "common-spectrum": "2.12.0",
-    "ml-gsd": "^12.1.8",
+    "ml-gsd": "^13.0.1",
     "spc-parser": "^1.0.0",
     "uninstall": "^0.0.0"
   },

@@ -7,7 +7,7 @@ import {
 import { convertPeak } from './convertPeak.js';
 import { getAnnotations } from './jsgraph/getAnnotations';
 
-export { Analysis, AnalysesManager, toJcamp } from 'common-spectrum';
+export { AnalysesManager, Analysis, toJcamp } from 'common-spectrum';
 
 export function peakPicking(spectrum, target, options) {
   const peak = originalPeakPicking(spectrum, target, options);
