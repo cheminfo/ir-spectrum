@@ -5,7 +5,7 @@ import {
 } from 'common-spectrum';
 
 import { convertPeak } from './convertPeak.js';
-import { getAnnotations } from './jsgraph/getAnnotations';
+import { getAnnotations } from './jsgraph/getAnnotations.js';
 
 export { AnalysesManager, Analysis, toJcamp } from 'common-spectrum';
 
