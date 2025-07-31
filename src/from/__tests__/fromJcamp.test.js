@@ -11,7 +11,7 @@ expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
 describe('fromJcamp', () => {
   it('transmittance', () => {
     let jcamp = readFileSync(
-      join(__dirname, './data/transmittance.jdx'),
+      join(import.meta.dirname, './data/transmittance.jdx'),
       'utf8',
     );
 
@@ -38,7 +38,7 @@ describe('fromJcamp', () => {
 
   it('transmittance_percent', () => {
     let jcamp = readFileSync(
-      join(__dirname, './data/transmittance_percent.jdx'),
+      join(import.meta.dirname, './data/transmittance_percent.jdx'),
       'utf8',
     );
 
@@ -63,7 +63,10 @@ describe('fromJcamp', () => {
   });
 
   it('absorbance', () => {
-    let jcamp = readFileSync(join(__dirname, './data/absorbance.jdx'), 'utf8');
+    let jcamp = readFileSync(
+      join(import.meta.dirname, './data/absorbance.jdx'),
+      'utf8',
+    );
 
     let result = fromJcamp(jcamp);
 

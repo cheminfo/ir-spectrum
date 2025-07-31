@@ -11,7 +11,9 @@ expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
 
 describe('fromSPC', () => {
   it('fromSPC', () => {
-    let buffer = readFileSync(join(__dirname, './data/absorbance.spc'));
+    let buffer = readFileSync(
+      join(import.meta.dirname, './data/absorbance.spc'),
+    );
 
     let analysis = fromSPC(buffer);
     let jcamp = toJcamp(analysis, {});
@@ -39,7 +41,9 @@ describe('fromSPC', () => {
   });
 
   it('resolutionPro', () => {
-    let buffer = readFileSync(join(__dirname, './data/resolutionPro.spc'));
+    let buffer = readFileSync(
+      join(import.meta.dirname, './data/resolutionPro.spc'),
+    );
 
     let analysis = fromSPC(buffer);
     const variables = analysis.spectra[0].variables;

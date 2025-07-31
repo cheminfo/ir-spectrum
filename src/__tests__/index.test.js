@@ -9,7 +9,9 @@ import { autoPeakPicking, fromJcamp, peakPicking } from '..';
 expect.extend({ toBeDeepCloseTo, toMatchCloseTo });
 
 test('autoPeakPicking', () => {
-  const jcamp = readFileSync(join(__dirname, './data/absorbance.jdx'));
+  const jcamp = readFileSync(
+    join(import.meta.dirname, './data/absorbance.jdx'),
+  );
 
   const result = fromJcamp(jcamp);
 
