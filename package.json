@@ -14,7 +14,7 @@
     "eslint-fix": "npm run eslint -- --fix",
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
-    "test": "npm run test-only && npm run eslint && npm run prettier",
+    "test": "npm run test-only && npm run eslint && npm run prettier && test-import",
     "test-only": "vitest run --coverage",
     "test-import": "node -e \"import('file://' + process.cwd() + '/src/index.js').then(console.log)\""
   },
@@ -30,12 +30,10 @@
   },
   "homepage": "https://github.com/cheminfo/ir-spectrum#readme",
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
     "@vitest/coverage-v8": "^3.2.4",
     "cheminfo-build": "^1.2.1",
     "eslint": "^9.32.0",
     "eslint-config-cheminfo": "^15.0.1",
-    "esm": "^3.2.25",
     "jest-matcher-deep-close-to": "^3.0.2",
     "prettier": "^3.6.2",
     "vitest": "^3.2.4"
@@ -43,8 +41,7 @@
   "dependencies": {
     "common-spectrum": "2.12.0",
     "ml-gsd": "^13.0.1",
-    "spc-parser": "^1.0.0",
-    "uninstall": "^0.0.0"
+    "spc-parser": "^1.0.0"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/ir/assignment.svg",
