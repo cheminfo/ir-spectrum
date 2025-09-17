@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/cheminfo/ir-spectrum/compare/v3.2.1...v3.3.0) (2025-09-17)
+
+
+### Features
+
+* update common-spectrum and cheminfo-build ([be39f7a](https://github.com/cheminfo/ir-spectrum/commit/be39f7abbe88436c7d5f25e453c0e1aa45375f2a))
+
 ## [3.2.1](https://github.com/cheminfo/ir-spectrum/compare/v3.2.0...v3.2.1) (2025-07-31)
 
 
