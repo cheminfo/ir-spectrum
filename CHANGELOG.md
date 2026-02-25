@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/cheminfo/ir-spectrum/compare/v3.2.1...v4.0.0) (2026-02-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to typescript and type:module
+
+### Features
+
+* update common-spectrum and cheminfo-build ([be39f7a](https://github.com/cheminfo/ir-spectrum/commit/be39f7abbe88436c7d5f25e453c0e1aa45375f2a))
+
+
+### Code Refactoring
+
+* migrate to typescript and type:module ([72537f8](https://github.com/cheminfo/ir-spectrum/commit/72537f8f53c08ada67f4f6389293100b8f99d977))
+
 ## [3.2.1](https://github.com/cheminfo/ir-spectrum/compare/v3.2.0...v3.2.1) (2025-07-31)
 
 
