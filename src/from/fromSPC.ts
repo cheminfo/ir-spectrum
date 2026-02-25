@@ -1,7 +1,7 @@
 import { Analysis } from 'common-spectrum';
 import { parse } from 'spc-parser';
 
-import { spectrumCallback } from './utils/spectrumCallback.js';
+import { spectrumCallback } from './utils/spectrumCallback.ts';
 
 /**
  * Creates a new Analysis from a SPC buffer

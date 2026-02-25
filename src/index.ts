@@ -4,8 +4,8 @@ import {
   peakPicking as originalPeakPicking,
 } from 'common-spectrum';
 
-import { convertPeak } from './convertPeak.js';
-import { getAnnotations } from './jsgraph/getAnnotations.js';
+import { convertPeak } from './convertPeak.ts';
+import { getAnnotations } from './jsgraph/getAnnotations.ts';
 
 export { AnalysesManager, Analysis, toJcamp } from 'common-spectrum';
 
@@ -21,7 +21,7 @@ export function autoPeakPicking(spectrum, options) {
   return peaks.map((peak) => convertPeak(peak, spectrum));
 }
 
-export { fromJcamp } from './from/fromJcamp.js';
-export { fromSPC } from './from/fromSPC.js';
+export { fromJcamp } from './from/fromJcamp.ts';
+export { fromSPC } from './from/fromSPC.ts';
 
 export const JSGraph = { ...OriginalJSGraph, getAnnotations };
