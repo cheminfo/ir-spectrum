@@ -4,21 +4,25 @@
   "description": "Package used to handle IR spectra in SciPeaks.",
   "type": "module",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./lib/index.js"
   },
   "files": [
+    "lib",
     "src"
   ],
   "scripts": {
-    "build": "cheminfo-build  --entry src/index.js --root IRSpectrum",
-    "build-doc": "cheminfo doc",
+    "build": "npm run tsc && cheminfo-build --entry lib/index.js --root IRSpectrum",
+    "check-types": "tsc --noEmit",
+    "clean": "rimraf lib",
     "eslint": "eslint src",
     "eslint-fix": "npm run eslint -- --fix",
+    "prepack": "npm run tsc",
     "prettier": "prettier --check src",
     "prettier-write": "prettier --write src",
-    "test": "npm run test-only && npm run eslint && npm run prettier && npm run test-import",
+    "test": "npm run test-only && npm run check-types && npm run eslint && npm run prettier",
     "test-only": "vitest run --coverage",
-    "test-import": "node -e \"import('file://' + process.cwd() + '/src/index.js').then(console.log)\""
+    "tsc": "npm run clean && npm run tsc-build",
+    "tsc-build": "tsc --project tsconfig.build.json"
   },
   "repository": {
     "type": "git",
@@ -37,13 +41,17 @@
     "spc-parser": "^1.0.0"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.17",
+    "@types/node": "^25.3.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@zakodium/tsconfig": "^1.0.2",
     "cheminfo-build": "^1.3.2",
     "eslint": "^9.39.2",
-    "eslint-config-cheminfo": "^17.1.0",
+    "eslint-config-cheminfo-typescript": "^21.1.0",
     "jest-matcher-deep-close-to": "^3.0.2",
     "prettier": "^3.8.1",
-    "vitest": "^4.0.17"
+    "rimraf": "^6.1.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
   },
   "info": {
     "logo": "https://raw.githubusercontent.com/cheminfo/font/master/src/ir/assignment.svg",

@@ -1,30 +1,44 @@
+import type { MeasurementXYVariables } from 'cheminfo-types';
 import { Analysis } from 'common-spectrum';
+import type { InputData } from 'spc-parser';
 import { parse } from 'spc-parser';
 
-import { spectrumCallback } from './utils/spectrumCallback.ts';
+import { spectrumCallback as defaultSpectrumCallback } from './utils/spectrumCallback.ts';
+
+interface FromSPCOptions {
+  /** Unique identifier for the analysis. */
+  id?: string;
+  /** Human-readable label for the analysis. */
+  label?: string;
+  /** Custom callback to apply on variables when creating a spectrum. Defaults to adding absorbance/transmittance variables. */
+  spectrumCallback?: (
+    variables: MeasurementXYVariables,
+  ) => MeasurementXYVariables;
+}
 
 /**
- * Creates a new Analysis from a SPC buffer
- * @param {ArrayBuffer} buffer
- * @param {object} [options={}]
- * @param {object} [options.id=Math.random()]
- * @param {string} [options.label=options.id] - human redeable label
- * @param {string} [options.spectrumCallback] - a callback to apply on variables when creating spectrum. Default will add a and t
- * @returns {Analysis} - New class element with the given data
+ * Creates a new Analysis from an SPC buffer.
+ * @param buffer - SPC file buffer.
+ * @param options - Options for the analysis.
+ * @returns New Analysis element with the given data.
  */
+export function fromSPC(
+  buffer: InputData,
+  options: FromSPCOptions = {},
+): Analysis {
+  const { spectrumCallback = defaultSpectrumCallback, ...rest } = options;
+  const analysis = new Analysis({ ...rest, spectrumCallback });
+  const result = parse(buffer);
 
-export function fromSPC(buffer, options = {}) {
-  let analysis = new Analysis({ ...options, spectrumCallback });
-  let result = parse(buffer);
+  const { parameters: _resultParameters, ...resultMeta } = result.meta;
 
-  if (result.meta) delete result.meta.parameters;
-
-  for (let spectrum of result.spectra) {
-    if (spectrum.meta) delete spectrum.meta.parameters;
+  for (const spectrum of result.spectra) {
+    const { parameters: _spectrumParameters, ...spectrumMeta } =
+      spectrum.meta ?? {};
     analysis.pushSpectrum(spectrum.variables, {
       dataType: 'IR SPECTRUM',
       title: '',
-      meta: { ...result.meta, ...spectrum.meta },
+      meta: { ...resultMeta, ...spectrumMeta },
     });
   }
   return analysis;

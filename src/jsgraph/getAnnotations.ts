@@ -1,34 +1,76 @@
-/**
- * @typedef {object} Peak
- * @property {number} wavenumber
- * @property {number} transmittance
- * @property {number} absorbance
- * @property {number} kind
- * @property {number} assignment
- */
+interface AnnotationPeak {
+  wavenumber: number;
+  transmittance: number;
+  absorbance: number;
+  kind: string;
+  assignment?: string;
+}
+
+interface AnnotationLabel {
+  text: string;
+  size: string;
+  anchor: string;
+  color: string;
+  angle?: number;
+  position: {
+    x: number;
+    y: number;
+    dy: string;
+  };
+}
+
+interface AnnotationPosition {
+  x: number;
+  y: number;
+  dy: string;
+  dx: string;
+}
+
+interface Annotation {
+  line: number;
+  type: string;
+  strokeColor: string;
+  strokeWidth: number;
+  fillColor: string;
+  labels?: AnnotationLabel[];
+  position?: AnnotationPosition[];
+}
+
+interface GetAnnotationsOptions {
+  /** Fill color for annotation rectangles. */
+  fillColor?: string;
+  /** Stroke color for annotation rectangles. */
+  strokeColor?: string;
+  /** Display the kind ('m', 'w', 'S'). */
+  showKind?: boolean;
+  /** Display the assignment. */
+  showAssignment?: boolean;
+  /** Callback allowing to add properties to an annotation. */
+  creationFct?: (annotation: Annotation, peak: AnnotationPeak) => void;
+  /** 't100'=transmittance in %, 't'=transmittance, 'a'=absorbance. */
+  mode?: 'a' | 't' | 't100';
+  /** Angle for assignment labels in absorbance mode. */
+  assignmentAngle?: number;
+}
 
 /**
- * Creates annotations for jsgraph that allows to display the result of peak picking
- * @param {Array<Peak>} peaks
- * @param {object} [options={}]
- * @param {string} [options.fillColor='green']
- * @param {string} [options.strokeColor='red']
- * @param {string} [options.showKind=true] - Display the kind, 'm', 'w', 'S'
- * @param {string} [options.showAssignment=true] - Display the assignment
- * @param {Function} [options.createFct] - (annotation, peak) => {}: callback allowing to add properties
- * @param {string} [options.mode='t100'] - 't100'=transmittance in %, 't'=transmittance, 'a'=absorbance
- * @returns array
+ * Creates annotations for jsgraph that allows to display the result of peak picking.
+ * @param peaks - Array of peaks with wavenumber, transmittance, absorbance, kind.
+ * @param options - Display options for the annotations.
+ * @returns Array of annotation objects for jsgraph.
  */
-
-export function getAnnotations(peaks, options = {}) {
+export function getAnnotations(
+  peaks: AnnotationPeak[],
+  options: GetAnnotationsOptions = {},
+): Annotation[] {
   const {
     fillColor = 'green',
     strokeColor = 'red',
     creationFct,
     mode = 't100',
   } = options;
-  let annotations = peaks.map((peak) => {
-    let annotation = {
+  const annotations = peaks.map((peak) => {
+    const annotation: Annotation = {
       line: 1,
       type: 'rect',
       strokeColor,
@@ -55,9 +97,14 @@ export function getAnnotations(peaks, options = {}) {
   return annotations;
 }
 
-function annotationTransmittance(annotation, peak, factor = 1, options = {}) {
+function annotationTransmittance(
+  annotation: Annotation,
+  peak: AnnotationPeak,
+  factor = 1,
+  options: GetAnnotationsOptions = {},
+): void {
   const { showKind = true, showAssignment = true } = options;
-  let labels = [];
+  const labels: AnnotationLabel[] = [];
   let line = 0;
 
   if (showKind) {
@@ -77,7 +124,7 @@ function annotationTransmittance(annotation, peak, factor = 1, options = {}) {
 
   if (showAssignment) {
     labels.push({
-      text: peak.assignment,
+      text: peak.assignment ?? '',
       size: '18px',
       anchor: 'middle',
       color: 'darkred',
@@ -107,13 +154,17 @@ function annotationTransmittance(annotation, peak, factor = 1, options = {}) {
   ];
 }
 
-function annotationAbsorbance(annotation, peak, options = {}) {
+function annotationAbsorbance(
+  annotation: Annotation,
+  peak: AnnotationPeak,
+  options: GetAnnotationsOptions = {},
+): void {
   const {
     showKind = true,
     showAssignment = true,
     assignmentAngle = -45,
   } = options;
-  let labels = [];
+  const labels: AnnotationLabel[] = [];
   let line = 0;
 
   if (showKind) {
@@ -133,7 +184,7 @@ function annotationAbsorbance(annotation, peak, options = {}) {
 
   if (showAssignment) {
     labels.push({
-      text: peak.assignment,
+      text: peak.assignment ?? '',
       size: '18px',
       angle: assignmentAngle,
       anchor: 'left',
