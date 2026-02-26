@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/cheminfo/ir-spectrum/compare/v4.0.0...v4.1.0) (2026-02-26)
+
+
+### Features
+
+* use lactame deploy template ([e97c9e4](https://github.com/cheminfo/ir-spectrum/commit/e97c9e4d60fcd78bf0b127b70f9f9412e145810c))
+
 ## [4.0.0](https://github.com/cheminfo/ir-spectrum/compare/v3.2.1...v4.0.0) (2026-02-25)
 
 
