@@ -1,6 +1,6 @@
 {
   "name": "ir-spectrum",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Package used to handle IR spectra in SciPeaks.",
   "type": "module",
   "exports": {
