@@ -36,14 +36,15 @@
   },
   "homepage": "https://github.com/cheminfo/ir-spectrum#readme",
   "dependencies": {
-    "common-spectrum": "3.1.0",
+    "common-spectrum": "3.2.0",
     "ml-gsd": "^13.1.1",
-    "spc-parser": "^1.0.0"
+    "spc-parser": "^1.0.0",
+    "xy-parser": "^6.0.1"
   },
   "devDependencies": {
-    "@types/node": "^25.3.0",
+    "@types/node": "^25.3.5",
     "@vitest/coverage-v8": "^4.0.18",
-    "@zakodium/tsconfig": "^1.0.2",
+    "@zakodium/tsconfig": "^1.0.3",
     "cheminfo-build": "^1.3.2",
     "eslint": "^9.39.2",
     "eslint-config-cheminfo-typescript": "^21.1.0",

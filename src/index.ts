@@ -58,6 +58,7 @@ export function autoPeakPicking(
 
 export { fromJcamp } from './from/fromJcamp.ts';
 export { fromSPC } from './from/fromSPC.ts';
+export { fromText } from './from/fromText.ts';
 
 export const JSGraph: typeof OriginalJSGraph & {
   getAnnotations: typeof getAnnotations;
