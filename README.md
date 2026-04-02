@@ -17,14 +17,25 @@ import IRSpectrum from 'ir-spectrum';
 let analysis = IRSpectrum.fromJcamp(jcamp);
 ```
 
-When loading an IRSpectrum from Jcamp we will systamatically add 2 new variables:
+When loading an IR spectrum from JCAMP or SPC, two additional variables are systematically added:
 
-- a: containing the absorbance
-- t: containing the percent transmittance
+| Key | Label              | Units | Description                      | Always present |
+| --- | ------------------ | ----- | -------------------------------- | -------------- |
+| x   | Wavenumber         | cm⁻¹  | Infrared wavenumber              | Yes            |
+| y   | (from source file) |       | Original y-axis data             | Yes            |
+| a   | Absorbance         |       | Absorbance values                | Yes            |
+| t   | Transmittance      | %     | Percent transmittance values     | Yes            |
 
-In order to calculate those 2 variables we will check the Y label. If it contains
-transmittance we calculate absorbance, if it contains absorbance we calculate transmittance.
-For transmittance we also check for the presence of a '%' sign.:w
+The conversion is automatic: if the original y label contains "transmittance", absorbance is calculated; if it contains "absorbance", transmittance is calculated. For transmittance, the presence of '%' or 'percent' in the label is used to determine the scaling factor.
+
+### Selector for visualization
+
+```html
+<select name="selector.variables">
+  <option value="a vs x">Absorbance versus wavenumber</option>
+  <option value="t vs x">Transmittance versus wavenumber</option>
+</select>
+```
 
 ## [API Documentation](https://cheminfo.github.io/ir-spectrum/)
 
