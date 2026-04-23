@@ -4,5 +4,5 @@
     "outDir": "lib",
     "types": ["node"]
   },
-  "include": ["src", "vite*.ts"]
+  "include": ["src", "vitest.config.ts"]
 }

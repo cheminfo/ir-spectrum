@@ -48,7 +48,7 @@ export function spectrumCallback(
     };
     if (factor === 100) {
       variables.t = { ...yVariable, symbol: 't' };
-      variables.t.data = variables.t.data.slice() as number[];
+      variables.t.data = variables.t.data.slice();
     } else {
       variables.t = {
         units: '',
