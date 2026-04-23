@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/cheminfo/ir-spectrum/compare/v4.1.0...v4.2.0) (2026-04-23)
+
+
+### Features
+
+* fromText will now set dataType to IR spectrum by default ([b27e12f](https://github.com/cheminfo/ir-spectrum/commit/b27e12fc8df84f398be6ccbe23b7299bf919fa51))
+
 ## [4.1.0](https://github.com/cheminfo/ir-spectrum/compare/v4.0.0...v4.1.0) (2026-02-26)
 
 
