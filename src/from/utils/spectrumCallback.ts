@@ -1,5 +1,7 @@
 import type { MeasurementXYVariables } from 'cheminfo-types';
 
+import { isPercent, isTransmittance } from './isTransmittance.ts';
+
 /**
  * Callback that adds absorbance (a) and transmittance (t) variables to the spectrum.
  * If the y variable is absorbance, transmittance is computed and vice versa.
@@ -13,11 +15,7 @@ export function spectrumCallback(
   // variable a = absorbance
   // variable t = transmittance
   const yVariable = variables.y;
-  let isAbsorbance = true;
-  if (yVariable.label.toLowerCase().includes('trans')) {
-    isAbsorbance = false;
-  }
-  if (isAbsorbance) {
+  if (!isTransmittance(yVariable)) {
     variables.a = {
       ...yVariable,
       symbol: 'a',
@@ -32,11 +30,7 @@ export function spectrumCallback(
       units: '',
     };
   } else {
-    const factor =
-      yVariable.label.includes('%') ||
-      yVariable.label.toLowerCase().includes('percent')
-        ? 100
-        : 1;
+    const factor = isPercent(yVariable) ? 100 : 1;
 
     variables.a = {
       data: (yVariable.data as number[]).map(
