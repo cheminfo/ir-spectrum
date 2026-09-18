@@ -30,7 +30,8 @@ export function fromSPC(
   const analysis = new Analysis({ ...rest, spectrumCallback });
   const result = parse(buffer);
 
-  const { parameters: _resultParameters, ...resultMeta } = result.meta;
+  const resultMeta: Record<string, unknown> = { ...result.meta };
+  delete resultMeta.parameters;
 
   for (const spectrum of result.spectra) {
     const { parameters: _spectrumParameters, ...spectrumMeta } =
