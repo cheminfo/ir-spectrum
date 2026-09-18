@@ -1,5 +1,14 @@
 # Changelog
 
+## [4.2.1](https://github.com/cheminfo/ir-spectrum/compare/v4.2.0...v4.2.1) (2026-09-18)
+
+
+### Bug Fixes
+
+* detect transmittance from %T labels and units ([5a7f9d1](https://github.com/cheminfo/ir-spectrum/commit/5a7f9d14deba6df6b6272ea5b55dfaf0d6625ded))
+* read transmittance as percent when its values exceed 2 ([ab49ba8](https://github.com/cheminfo/ir-spectrum/commit/ab49ba865a19af23c2bfbbb7fc92d153712afdbe))
+* support UVProbe metadata returned by spc-parser 2.1 ([c0555ee](https://github.com/cheminfo/ir-spectrum/commit/c0555ee068319ee08200c4ab4d97bea34e52dbc9))
+
 ## [4.2.0](https://github.com/cheminfo/ir-spectrum/compare/v4.1.0...v4.2.0) (2026-05-05)
 
 
