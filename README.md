@@ -12,21 +12,26 @@
 ## Usage
 
 ```js
-import IRSpectrum from 'ir-spectrum';
+import { readFileSync } from 'node:fs';
 
-let analysis = IRSpectrum.fromJcamp(jcamp);
+import { fromJcamp } from 'ir-spectrum';
+
+const analysis = fromJcamp(readFileSync('absorbance.jdx', 'utf8'));
+const spectrum = analysis.getSpectrum();
 ```
+
+Other loaders are `fromSPC` (SPC files) and `fromText` (CSV, TSV and other x,y text). `peakPicking` and `autoPeakPicking` return peaks with their wavenumber, absorbance and transmittance.
 
 When loading an IR spectrum from JCAMP or SPC, two additional variables are systematically added:
 
-| Key | Label              | Units | Description                      | Always present |
-| --- | ------------------ | ----- | -------------------------------- | -------------- |
-| x   | Wavenumber         | cm⁻¹  | Infrared wavenumber              | Yes            |
-| y   | (from source file) |       | Original y-axis data             | Yes            |
-| a   | Absorbance         |       | Absorbance values                | Yes            |
-| t   | Transmittance      | %     | Percent transmittance values     | Yes            |
+| Key | Label              | Units | Description                  | Always present |
+| --- | ------------------ | ----- | ---------------------------- | -------------- |
+| x   | Wavenumber         | cm⁻¹  | Infrared wavenumber          | Yes            |
+| y   | (from source file) |       | Original y-axis data         | Yes            |
+| a   | Absorbance         |       | Absorbance values            | Yes            |
+| t   | Transmittance      | %     | Percent transmittance values | Yes            |
 
-The conversion is automatic: if the original y label contains "transmittance", absorbance is calculated; if it contains "absorbance", transmittance is calculated. For transmittance, the presence of '%' or 'percent' in the label is used to determine the scaling factor.
+The conversion is automatic: if the y label or units name a transmittance ("Transmittance", "Transmission", "%T", "T"), absorbance is calculated; otherwise y is taken as an absorbance and transmittance is calculated. A transmittance is read as a percentage when its label or units contain '%' or 'percent', or, failing that, when its values go above 2.
 
 ### Selector for visualization
 
