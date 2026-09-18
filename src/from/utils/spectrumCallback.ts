@@ -40,17 +40,20 @@ export function spectrumCallback(
       label: 'Absorbance',
       units: '',
     };
-    if (factor === 100) {
-      variables.t = { ...yVariable, symbol: 't' };
-      variables.t.data = variables.t.data.slice();
+    const { label, units, data } = yVariable;
+    if (isPercent({ label, units })) {
+      variables.t = { ...yVariable, symbol: 't', data: data.slice() };
     } else {
       variables.t = {
         units: '',
         label: 'Transmittance (%)',
         symbol: 't',
-        data: (yVariable.data as number[]).map(
-          (transmittance: number) => transmittance * 100,
-        ),
+        data:
+          factor === 100
+            ? data.slice()
+            : (data as number[]).map(
+                (transmittance: number) => transmittance * 100,
+              ),
       };
     }
   }

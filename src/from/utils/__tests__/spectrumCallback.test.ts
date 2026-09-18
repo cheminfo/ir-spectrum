@@ -52,3 +52,14 @@ test('an unknown unit stays an absorbance', () => {
   expect(Array.from(variables.a?.data as number[])).toStrictEqual([1, 0]);
   expect(Array.from(variables.t?.data as number[])).toStrictEqual([10, 100]);
 });
+
+test('a transmittance from 0 to 100 without a percent marker is a percent', () => {
+  const variables = callback('Transmission', [10, 100], 'Transmission');
+
+  expect(Array.from(variables.t?.data as number[])).toStrictEqual([10, 100]);
+
+  const absorbance = Array.from(variables.a?.data as number[]);
+
+  expect(absorbance[0]).toBeCloseTo(1, 10);
+  expect(absorbance[1]).toBeCloseTo(0, 10);
+});

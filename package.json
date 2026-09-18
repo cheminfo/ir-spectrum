@@ -38,6 +38,7 @@
   "dependencies": {
     "common-spectrum": "3.2.0",
     "ml-gsd": "^13.1.1",
+    "ml-spectra-processing": "^14.35.1",
     "spc-parser": "^2.0.0",
     "xy-parser": "^6.0.1"
   },

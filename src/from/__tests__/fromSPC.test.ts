@@ -17,7 +17,7 @@ test('fromSPC', () => {
   const analysis = fromSPC(buffer);
   const jcamp = toJcamp(analysis, {});
 
-  expect(jcamp.split('\n')).toHaveLength(1833);
+  expect(jcamp.split('\n')).toHaveLength(1834);
   expect(analysis.spectra).toHaveLength(1);
 
   const first = analysis.spectra[0]!;
@@ -32,10 +32,10 @@ test('fromSPC', () => {
   expect(first.variables.a!.label).toBe('Absorbance');
   expect(first.variables.t!.label).toBe('Transmittance');
   expect(first.variables.t!.units).toBe('%');
-  expect(first.variables.a!.min).toBeDeepCloseTo(-2, 5);
-  expect(first.variables.a!.max).toBeDeepCloseTo(-0.5194697976112366, 5);
-  expect(first.variables.t!.min).toBeDeepCloseTo(330.72710037231445, 5);
-  expect(first.variables.t!.max).toBeDeepCloseTo(10000, 5);
+  expect(first.variables.a!.min).toBeDeepCloseTo(0, 5);
+  expect(first.variables.a!.max).toBeDeepCloseTo(1.4805302167587138, 5);
+  expect(first.variables.t!.min).toBeDeepCloseTo(3.3072710037231445, 5);
+  expect(first.variables.t!.max).toBeDeepCloseTo(100, 5);
   expect(Object.keys(first.variables)).toStrictEqual(['x', 'y', 'a', 't']);
 });
 

@@ -76,3 +76,13 @@ test('percent is recognised on the label and on the units', () => {
   expect(isPercent({ label: 'Transmittance' })).toBe(false);
   expect(isPercent({ label: 'T' })).toBe(false);
 });
+
+test('percent is inferred from the data when the text does not say', () => {
+  expect(isPercent({ label: 'Transmission', data: [3.3, 94.9, 100] })).toBe(
+    true,
+  );
+  expect(isPercent({ label: 'Transmission', data: [0.03, 0.95, 1.02] })).toBe(
+    false,
+  );
+  expect(isPercent({ label: 'Transmission', data: [] })).toBe(false);
+});
